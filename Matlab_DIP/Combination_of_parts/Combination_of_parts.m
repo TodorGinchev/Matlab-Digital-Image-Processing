@@ -13,7 +13,7 @@ show_input_image = false;
 
 %BEGIN ALGORITHM
 %Get all images with .jpg format from the selected directory
-image_dir = '/media/todor/User/git/bitbucket/combinened/fried_rice/';
+image_dir = '/media/todor/User/git/bitbucket/combinened/french_fries/';
 imagefiles = dir(strcat(image_dir,'*.jpg'));
 image_num = length(imagefiles) % Number of images found
 %Loop over all the images
@@ -56,6 +56,7 @@ for ii=1:image_num
         end
         imwrite(segments(:,:,:,i),strcat(out_image_dir,out_image_name));
     end
-    
+    pause
+    close all
 end
 

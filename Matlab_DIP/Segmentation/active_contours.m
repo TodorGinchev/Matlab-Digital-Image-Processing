@@ -28,7 +28,7 @@
  mask = zeros(size(Igray));
  mask(25:end-25,25:end-25) = 1;
   
- %figure, imshow(mask);
+ figure, imshow(mask);
  %title('Initial Contour Location');
  
  bw = activecontour(Igray,mask,100);

@@ -77,9 +77,13 @@ show_output_images = false;%Show the filtered segments
             H_bin= (H>H_min(i)/256) & (H<H_max(i)/256);
         end
         %Morhological closing
-        H_bin = bwmorph(H_bin,'close',50);
+        %H_bin = bwmorph(H_bin,'close');
         %Apply mask
         I_hsv_masked = I_hsv.*repmat(H_bin,[1,1,3]);
+        figure;imshow(I);
+        figure;imshow(H_bin);
+        active_contour_mask = activecontour(H, bwmorph(H_bin,'thin',50));
+        figure;imshow(active_contour_mask);
         %Create output
         segments(:,:,:,i+1)=hsv2rgb(I_hsv_masked);%segments(:,:,:,1) is dummy
            
